@@ -1,0 +1,195 @@
+INFO 2019-11-16 18:44:42,013 autoreload 3548 1964 Watching for file changes with StatReloader
+INFO 2019-11-16 18:44:42,604 basehttp 3548 6040 "GET / HTTP/1.1" 200 14240
+INFO 2019-11-16 18:46:30,971 autoreload 3764 10656 Watching for file changes with StatReloader
+INFO 2019-11-16 18:46:35,401 basehttp 3764 3768 "GET / HTTP/1.1" 200 14240
+INFO 2019-11-16 18:46:37,081 basehttp 3764 3768 "GET /article/article-list/ HTTP/1.1" 200 14240
+INFO 2019-11-16 18:46:38,544 basehttp 3764 3768 "GET /article/article-detail/9/ HTTP/1.1" 200 12584
+INFO 2019-11-16 18:46:41,676 basehttp 3764 3768 "GET / HTTP/1.1" 200 14240
+INFO 2019-11-16 18:46:42,791 basehttp 3764 3768 "GET /article/article-list/?tag=python HTTP/1.1" 200 15092
+INFO 2019-11-16 18:46:42,814 basehttp 3764 3768 "GET /media/article/20191116/e98b9e16fdfaaf51a955b94e8c5494eef11f7a18.jpg HTTP/1.1" 304 0
+INFO 2019-11-16 18:46:43,943 basehttp 3764 3768 "GET /article/article-list/?order=total_views&search=&column=None&tag=python HTTP/1.1" 200 15382
+INFO 2019-11-16 18:46:43,967 basehttp 3764 3768 "GET /media/article/20191116/276a8d785db4a1fad1f29bf4377f5859220aff05.jpg HTTP/1.1" 304 0
+INFO 2019-11-16 18:46:44,358 basehttp 3764 3768 "GET /article/article-list/?search=&column=None&tag=python HTTP/1.1" 200 15092
+INFO 2019-11-16 18:47:52,933 autoreload 3764 10656 D:\django_project\my_blog\my_blog\settings.py changed, reloading.
+INFO 2019-11-16 18:48:13,310 autoreload 9120 12892 Watching for file changes with StatReloader
+INFO 2019-11-16 18:48:48,315 autoreload 9120 12892 D:\django_project\my_blog\my_blog\settings.py changed, reloading.
+INFO 2019-11-16 18:48:49,554 autoreload 1468 13248 Watching for file changes with StatReloader
+INFO 2019-11-16 18:50:30,278 basehttp 1468 2380 "GET / HTTP/1.1" 200 14240
+INFO 2019-11-16 18:50:40,029 basehttp 1468 2380 "GET /userprofile/edit/1/ HTTP/1.1" 200 7204
+INFO 2019-11-16 18:50:40,057 basehttp 1468 2380 "GET /media/avatar/20191116/579e074e12c82bbaea256600eafeaa7d.jpeg HTTP/1.1" 304 0
+INFO 2019-11-16 18:54:11,413 autoreload 1468 13248 D:\django_project\my_blog\article\views.py changed, reloading.
+INFO 2019-11-16 18:54:12,703 autoreload 2336 9004 Watching for file changes with StatReloader
+INFO 2019-11-16 18:55:17,297 autoreload 2336 9004 D:\django_project\my_blog\article\views.py changed, reloading.
+INFO 2019-11-16 18:55:18,739 autoreload 8488 2180 Watching for file changes with StatReloader
+INFO 2019-11-16 18:55:53,572 autoreload 8488 2180 D:\django_project\my_blog\article\views.py changed, reloading.
+INFO 2019-11-16 18:55:55,070 autoreload 9408 11776 Watching for file changes with StatReloader
+INFO 2019-11-16 18:56:13,127 autoreload 9408 11776 D:\django_project\my_blog\article\views.py changed, reloading.
+INFO 2019-11-16 18:56:14,511 autoreload 12436 8816 Watching for file changes with StatReloader
+WARNING 2019-11-16 18:57:13,252 views 12436 3280 This is my article list!
+INFO 2019-11-16 18:57:13,365 basehttp 12436 3280 "GET /article/article-list/ HTTP/1.1" 200 14240
+WARNING 2019-11-16 19:35:49,655 views 12436 12816 This is my article list!
+ERROR 2019-11-16 19:35:49,766 log 12436 12816 Internal Server Error: /article/article-list/
+Traceback (most recent call last):
+  File "D:\django_project\env\lib\site-packages\django\template\defaulttags.py", line 1021, in find_library
+    return parser.libraries[name]
+KeyError: 'my_filters_and_tags'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\django_project\env\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\django_project\env\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\django_project\env\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\django_project\my_blog\article\views.py", line 70, in article_list
+    return render(request, 'article/list.html', context)
+  File "D:\django_project\env\lib\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\django_project\env\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\django_project\env\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "D:\django_project\env\lib\site-packages\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "D:\django_project\env\lib\site-packages\django\template\engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "D:\django_project\env\lib\site-packages\django\template\engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\django_project\env\lib\site-packages\django\template\loaders\base.py", line 30, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "D:\django_project\env\lib\site-packages\django\template\base.py", line 156, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "D:\django_project\env\lib\site-packages\django\template\base.py", line 194, in compile_nodelist
+    return parser.parse()
+  File "D:\django_project\env\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "D:\django_project\env\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\django_project\env\lib\site-packages\django\template\loader_tags.py", line 266, in do_extends
+    nodelist = parser.parse()
+  File "D:\django_project\env\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "D:\django_project\env\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\django_project\env\lib\site-packages\django\template\defaulttags.py", line 1078, in load
+    lib = find_library(parser, name)
+  File "D:\django_project\env\lib\site-packages\django\template\defaulttags.py", line 1025, in find_library
+    name, "\n".join(sorted(parser.libraries)),
+django.template.exceptions.TemplateSyntaxError: 'my_filters_and_tags' is not a registered tag library. Must be one of:
+admin_list
+admin_modify
+admin_static
+admin_urls
+cache
+i18n
+l10n
+log
+mptt_admin
+mptt_tags
+notifications_tags
+static
+staticfiles
+tz
+ERROR 2019-11-16 19:35:49,771 basehttp 12436 12816 "GET /article/article-list/ HTTP/1.1" 500 163841
+INFO 2019-11-16 19:35:56,478 autoreload 11844 7264 Watching for file changes with StatReloader
+WARNING 2019-11-16 19:35:59,007 views 11844 9776 This is my article list!
+INFO 2019-11-16 19:35:59,133 basehttp 11844 9776 "GET /article/article-list/ HTTP/1.1" 200 14513
+INFO 2019-11-16 19:35:59,165 basehttp 11844 9776 "GET /media/article/20191116/1541504E7-5.jpg HTTP/1.1" 304 0
+WARNING 2019-11-16 19:36:02,144 views 11844 9776 This is my article list!
+INFO 2019-11-16 19:36:02,181 basehttp 11844 9776 "GET /article/article-list/?page=2&order=None&search=&column=None&tag=None HTTP/1.1" 200 16060
+INFO 2019-11-16 19:36:02,205 basehttp 11844 9776 "GET /media/article/20191116/20171027201604_zQ4V8.jpeg HTTP/1.1" 304 0
+INFO 2019-11-16 19:36:02,214 basehttp 11844 9776 "GET /media/article/20191116/7c6e1bb925b8f1a5e1aebab61a99e97b316be781.jpg HTTP/1.1" 304 0
+WARNING 2019-11-16 19:36:04,113 views 11844 9776 This is my article list!
+INFO 2019-11-16 19:36:04,141 basehttp 11844 9776 "GET /article/article-list/?page=3&order=None&search=&column=None&tag=None HTTP/1.1" 200 10262
+WARNING 2019-11-16 19:36:05,751 views 11844 9776 This is my article list!
+INFO 2019-11-16 19:36:05,789 basehttp 11844 9776 "GET /article/article-list/?page=1&order=None&search=&column=None&tag=None HTTP/1.1" 200 14513
+WARNING 2019-11-16 19:36:08,009 views 11844 9776 This is my article list!
+INFO 2019-11-16 19:36:08,044 basehttp 11844 9776 "GET /article/article-list/?page=2&order=None&search=&column=None&tag=None HTTP/1.1" 200 16060
+WARNING 2019-11-16 19:36:09,416 views 11844 9776 This is my article list!
+INFO 2019-11-16 19:36:09,445 basehttp 11844 9776 "GET /article/article-list/?page=3&order=None&search=&column=None&tag=None HTTP/1.1" 200 10262
+WARNING 2019-11-16 19:36:10,911 views 11844 9776 This is my article list!
+INFO 2019-11-16 19:36:10,946 basehttp 11844 9776 "GET /article/article-list/?page=1&order=None&search=&column=None&tag=None HTTP/1.1" 200 14513
+WARNING 2019-11-16 20:08:54,266 views 11844 8300 This is my article list!
+INFO 2019-11-16 20:08:54,318 basehttp 11844 8300 "GET /article/article-list/?page=1&order=None&search=&column=None&tag=None HTTP/1.1" 200 14513
+WARNING 2019-11-16 20:08:55,113 views 11844 8300 This is my article list!
+INFO 2019-11-16 20:08:55,142 basehttp 11844 8300 "GET /article/article-list/?page=1&order=None&search=&column=None&tag=None HTTP/1.1" 200 14513
+INFO 2019-11-16 20:41:33,824 autoreload 8476 11268 Watching for file changes with StatReloader
+INFO 2019-11-16 20:44:08,768 autoreload 8368 8124 Watching for file changes with StatReloader
+WARNING 2019-11-16 20:44:15,752 views 8368 7588 This is my article list!
+INFO 2019-11-16 20:44:15,943 basehttp 8368 7588 "GET /article/article-list/ HTTP/1.1" 200 14513
+WARNING 2019-11-16 20:44:16,235 log 8368 7588 Not Found: /favicon.ico
+WARNING 2019-11-16 20:44:16,239 basehttp 8368 7588 "GET /favicon.ico HTTP/1.1" 404 2883
+INFO 2019-11-16 20:44:22,243 basehttp 8368 7588 "GET /article/article-detail/8/ HTTP/1.1" 200 12612
+INFO 2019-11-16 20:49:49,349 basehttp 8368 12452 "GET /article/article-detail/8/ HTTP/1.1" 200 13298
+INFO 2019-11-16 20:59:50,332 basehttp 8368 464 "GET /article/article-detail/8/ HTTP/1.1" 200 15866
+INFO 2019-11-16 20:59:50,362 basehttp 8368 464 "GET /static/csrf.js HTTP/1.1" 304 0
+INFO 2019-11-16 20:59:51,801 basehttp 8368 464 "POST /article/increase-likes/8/ HTTP/1.1" 200 7
+INFO 2019-11-16 20:59:55,864 basehttp 8368 464 "GET /article/article-detail/8/ HTTP/1.1" 200 15866
+INFO 2019-11-16 21:04:45,244 basehttp 8368 948 "GET /static/fontawesome-free-5.11.2-web/css/all.css HTTP/1.1" 304 0
+WARNING 2019-11-16 21:04:45,305 basehttp 8368 948 "GET /static/popper/popper.js.map HTTP/1.1" 404 1684
+WARNING 2019-11-16 21:19:47,488 views 8368 7468 This is my article list!
+INFO 2019-11-16 21:19:47,535 basehttp 8368 7468 "GET /article/article-list/ HTTP/1.1" 200 14513
+INFO 2019-11-16 21:19:47,620 basehttp 8368 7468 "GET /static/fontawesome-free-5.11.2-web/webfonts/fa-solid-900.woff2 HTTP/1.1" 304 0
+INFO 2019-11-16 21:19:49,476 basehttp 8368 7468 "GET /article/article-detail/9/ HTTP/1.1" 200 15838
+INFO 2019-11-16 21:19:53,074 basehttp 8368 7468 "POST /article/increase-likes/9/ HTTP/1.1" 200 7
+WARNING 2019-11-16 21:19:59,705 views 8368 7468 This is my article list!
+INFO 2019-11-16 21:19:59,749 basehttp 8368 7468 "GET /article/article-list/ HTTP/1.1" 200 14513
+WARNING 2019-11-16 21:20:02,495 views 8368 7468 This is my article list!
+INFO 2019-11-16 21:20:02,531 basehttp 8368 7468 "GET /article/article-list/?page=2&order=None&search=&column=None&tag=None HTTP/1.1" 200 16060
+INFO 2019-11-16 21:20:02,551 basehttp 8368 7468 "GET /media/article/20191116/e98b9e16fdfaaf51a955b94e8c5494eef11f7a18.jpg HTTP/1.1" 304 0
+INFO 2019-11-16 21:20:03,624 basehttp 8368 7468 "GET /article/article-detail/4/ HTTP/1.1" 200 20251
+WARNING 2019-11-16 21:20:10,036 views 8368 7468 This is my article list!
+INFO 2019-11-16 21:20:10,077 basehttp 8368 7468 "GET /article/article-list/ HTTP/1.1" 200 14513
+INFO 2019-11-16 21:35:05,192 autoreload 8368 8124 D:\django_project\my_blog\article\views.py changed, reloading.
+INFO 2019-11-16 21:35:06,801 autoreload 7436 4972 Watching for file changes with StatReloader
+INFO 2019-11-16 21:35:45,607 autoreload 7436 4972 D:\django_project\my_blog\article\views.py changed, reloading.
+INFO 2019-11-16 21:35:47,103 autoreload 2132 10068 Watching for file changes with StatReloader
+INFO 2019-11-16 21:35:52,338 autoreload 2132 10068 D:\django_project\my_blog\article\views.py changed, reloading.
+INFO 2019-11-16 21:35:53,689 autoreload 12620 6904 Watching for file changes with StatReloader
+WARNING 2019-11-16 21:43:37,381 views 12620 11472 This is my article list!
+INFO 2019-11-16 21:43:37,513 basehttp 12620 11472 "GET /article/article-list/ HTTP/1.1" 200 14513
+INFO 2019-11-16 21:43:37,537 basehttp 12620 11472 "GET /media/article/20191116/1541504E7-5.jpg HTTP/1.1" 304 0
+INFO 2019-11-16 21:43:39,525 basehttp 12620 11472 "GET /article/article-detail/6/ HTTP/1.1" 200 16334
+WARNING 2019-11-16 21:43:43,161 views 12620 11472 This is my article list!
+INFO 2019-11-16 21:43:43,202 basehttp 12620 11472 "GET / HTTP/1.1" 200 14514
+INFO 2019-11-16 21:43:44,246 basehttp 12620 11472 "GET /article/article-detail/9/ HTTP/1.1" 200 16278
+WARNING 2019-11-16 21:43:47,584 views 12620 11472 This is my article list!
+INFO 2019-11-16 21:43:47,623 basehttp 12620 11472 "GET / HTTP/1.1" 200 14514
+INFO 2019-11-16 21:44:18,976 basehttp 12620 11472 "GET /article/article-detail/8/ HTTP/1.1" 200 16562
+INFO 2019-11-16 21:45:00,273 basehttp 12620 11472 "GET /article/article-detail/8/ HTTP/1.1" 200 16566
+INFO 2019-11-16 21:45:14,267 basehttp 12620 11472 "GET /article/article-detail/8/ HTTP/1.1" 200 16570
+INFO 2019-11-16 21:45:25,925 basehttp 12620 11472 "GET /article/article-detail/8/ HTTP/1.1" 200 16566
+INFO 2019-11-16 21:45:27,397 basehttp 12620 11472 "GET /article/article-detail/9/ HTTP/1.1" 200 16265
+INFO 2019-11-16 21:45:28,453 basehttp 12620 11472 "GET /article/article-detail/8/ HTTP/1.1" 200 16566
+INFO 2019-11-16 21:45:29,353 basehttp 12620 11472 "GET /article/article-detail/6/ HTTP/1.1" 200 16308
+INFO 2019-11-16 21:45:30,140 basehttp 12620 11472 "GET /article/article-detail/4/ HTTP/1.1" 200 20951
+INFO 2019-11-16 21:45:31,476 basehttp 12620 11472 "GET /article/article-detail/6/ HTTP/1.1" 200 16308
+WARNING 2019-11-16 21:46:07,418 views 12620 11472 This is my article list!
+INFO 2019-11-16 21:46:07,459 basehttp 12620 11472 "GET /article/article-list/ HTTP/1.1" 200 14514
+INFO 2019-11-16 21:57:59,781 basehttp 12620 11360 "GET /article/article-detail/9/ HTTP/1.1" 200 16266
+WARNING 2019-11-16 21:58:06,475 basehttp 12620 11360 "GET /static/popper/popper.js.map HTTP/1.1" 404 1684
+INFO 2019-11-16 21:58:40,988 basehttp 12620 1312 "GET /article/article-detail/9/ HTTP/1.1" 200 16266
+WARNING 2019-11-16 21:58:41,291 basehttp 12620 1312 "GET /static/popper/popper.js.map HTTP/1.1" 404 1684
+INFO 2019-11-16 21:58:44,566 basehttp 12620 9868 "POST /article/increase-likes/9/ HTTP/1.1" 200 7
+WARNING 2019-11-16 22:00:38,556 views 12620 9868 This is my article list!
+INFO 2019-11-16 22:00:38,595 basehttp 12620 9868 "GET / HTTP/1.1" 200 14515
+WARNING 2019-11-16 22:00:38,796 basehttp 12620 9868 "GET /static/popper/popper.js.map HTTP/1.1" 404 1684
+WARNING 2019-11-16 22:00:40,663 views 12620 7972 This is my article list!
+INFO 2019-11-16 22:00:40,694 basehttp 12620 7972 "GET /?page=3&order=None&search=&column=None&tag=None HTTP/1.1" 200 10262
+INFO 2019-11-16 22:00:40,716 basehttp 12620 7972 "GET /media/article/20191116/276a8d785db4a1fad1f29bf4377f5859220aff05.jpg HTTP/1.1" 304 0
+INFO 2019-11-16 22:00:41,666 basehttp 12620 7972 "GET /article/article-detail/1/ HTTP/1.1" 200 17489
+WARNING 2019-11-16 22:00:44,944 views 12620 7972 This is my article list!
+INFO 2019-11-16 22:00:44,981 basehttp 12620 7972 "GET / HTTP/1.1" 200 14515
+INFO 2019-11-16 22:00:46,252 basehttp 12620 7972 "GET /article/article-detail/9/ HTTP/1.1" 200 16266
+INFO 2019-11-16 22:00:47,579 basehttp 12620 7972 "GET /article/article-detail/8/ HTTP/1.1" 200 16567
+INFO 2019-11-16 22:00:50,696 basehttp 12620 7972 "GET /article/article-detail/9/ HTTP/1.1" 200 16266
+INFO 2019-11-16 22:00:51,446 basehttp 12620 7972 "GET /article/article-detail/8/ HTTP/1.1" 200 16567
+INFO 2019-11-16 22:00:54,134 basehttp 12620 7972 "POST /article/increase-likes/8/ HTTP/1.1" 200 7
+WARNING 2019-11-16 22:01:07,866 views 12620 7972 This is my article list!
+INFO 2019-11-16 22:01:07,903 basehttp 12620 7972 "GET / HTTP/1.1" 200 14516
+INFO 2019-11-16 22:22:06,270 basehttp 12620 9564 "GET /article/article-detail/8/ HTTP/1.1" 200 16567
+INFO 2019-11-16 22:44:03,139 basehttp 12620 2400 "GET /article/article-detail/6/ HTTP/1.1" 200 16308
+INFO 2019-11-16 22:44:03,949 basehttp 12620 2400 "GET /article/article-detail/8/ HTTP/1.1" 200 16567
+WARNING 2019-11-16 22:55:14,938 basehttp 12620 11220 "GET /static/popper/popper.js.map HTTP/1.1" 404 1684
