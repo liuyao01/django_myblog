@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+import configparser
+conf = configparser.ConfigParser()
+conf.read('config.ini')
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -164,9 +168,9 @@ STATIC_URL = '/static/'
 # SMTP服务器，改为你的邮箱的smtp!
 EMAIL_HOST = 'smtp.qq.com'
 # 改为你自己的邮箱名！
-EMAIL_HOST_USER = '960120718@qq.com'
+EMAIL_HOST_USER = conf['Email']['emailhostuser']
 # 你的邮箱密码
-EMAIL_HOST_PASSWORD = 'kwelchfmyyiobege'
+EMAIL_HOST_PASSWORD = conf['Email']['emailhostpassword']
 # 发送邮件的端口
 EMAIL_PORT = 25
 # 是否使用 TLS
