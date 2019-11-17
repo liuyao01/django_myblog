@@ -13,7 +13,8 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 import os
 import configparser
 conf = configparser.ConfigParser()
-conf.read('config.ini')
+config_path = os.path.join(os.path.dirname(os.path.abspath(__file__)),'config.ini')
+conf.read(config_path)
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
