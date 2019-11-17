@@ -173,7 +173,7 @@ EMAIL_HOST_USER = conf['Email']['emailhostuser']
 # 你的邮箱密码
 EMAIL_HOST_PASSWORD = conf['Email']['emailhostpassword']
 # 发送邮件的端口
-EMAIL_PORT = 25
+EMAIL_PORT = 465
 # 是否使用 TLS
 EMAIL_USE_TLS = True
 # 默认的发件人
