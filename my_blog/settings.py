@@ -25,7 +25,7 @@ SECRET_KEY = '_2y7jxnf@_cm)hk&u&f3k=fg&nzri(n$)#w0pqpu(e(_$wi&x*'
 # 关闭调试模式
 DEBUG = False
 # 允许的服务器
-ALLOWED_HOSTS = ['127.0.0.1','172.19.205.206']
+ALLOWED_HOSTS = ['127.0.0.1','47.102.132.125']
 # 静态文件收集目录
 STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
 
