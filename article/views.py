@@ -47,9 +47,9 @@ def article_list(request):
 
     #查询栏目文章总数
     #django-1,python-2,linux-3
-    articles_python = article_list.filter(column=2).count()
-    articles_django = article_list.filter(column=1).count()
-    articles_linux = article_list.filter(column=3).count()
+    articles_python = article_list.filter(column=1).count()
+    articles_django = article_list.filter(column=3).count()
+    articles_linux = article_list.filter(column=2).count()
 
     # 搜索查询集
     if search:
