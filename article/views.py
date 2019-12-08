@@ -29,6 +29,11 @@ logger = logging.getLogger('django.request')
 
 # Create your views here.
 # 视图函数
+
+def about(request):
+    return render(request, 'article/about.html')
+#关于网站
+
 def article_list(request):
     #打印日志：
     logger.warning('This is my article list!')
@@ -39,6 +44,13 @@ def article_list(request):
     tag = request.GET.get('tag')
     # 初始化查询集
     article_list = ArticlePost.objects.all()
+
+    #查询栏目文章总数
+    #django-1,python-2,linux-3
+    articles_python = article_list.filter(column=2).count()
+    articles_django = article_list.filter(column=1).count()
+    articles_linux = article_list.filter(column=3).count()
+
     # 搜索查询集
     if search:
         article_list = article_list.filter(
@@ -60,13 +72,13 @@ def article_list(request):
     if order == 'total_views':
         article_list = article_list.order_by('-total_views')
     # 每页显示 3 篇文章
-    paginator = Paginator(article_list,3)
+    paginator = Paginator(article_list,7)
     # 获取 url 中的页码
     page = request.GET.get('page')
     # 将导航对象相应的页码内容返回给 articles
     articles = paginator.get_page(page)
     # 需要传递给模板（templates）的对象
-    context = { 'articles': articles, 'order': order, 'search': search,'column': column,'tag': tag, }
+    context = { 'articles': articles, 'order': order, 'search': search,'column': column,'tag': tag,'total_django':articles_django,'total_linux':articles_linux,'total_python':articles_python, }
     # render函数：载入模板，并返回context对象
     return render(request, 'article/list.html', context)
 

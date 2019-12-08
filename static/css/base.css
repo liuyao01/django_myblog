@@ -1,0 +1,29 @@
+#home-card .card-header strong,
+#tag-card .card-header strong,
+#category-card .card-header strong,
+#friends-card .card-header strong {
+    padding-bottom:12px;
+    border-bottom: 2px solid #ee7600;
+}
+
+.category-item:before {
+    position: absolute;
+    top: 1em;
+    left: .2rem;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: #fff #fff #fff #ee7600;
+    -webkit-transform-origin: 25% center;
+    transform-origin: 25% center;
+    border-width: 4px;
+    content: "";
+}
+
+#category-card .badge {
+    width: 2.2rem;
+    background-color: #17a2b8;
+    color: #fff;
+    font-weight: 700;
+    border-radius: .2rem;
+}

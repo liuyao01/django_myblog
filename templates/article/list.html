@@ -35,48 +35,43 @@
             </li>
         </ol>
     </nav>
-    <!-- 新增，搜索栏 -->
+
     <div class="row">
-        <div class="col-auto mr-auto">
-            <form class="form-inline" >
-                <label class="sr-only">content</label>
-                <input type="text"
-                    class="form-control mb-2 mr-sm-2"
-                    name="search"
-                    placeholder="搜索文章..."
-                    required
-                >
-            </form>
-        </div>
-    </div>
-    <!-- 新增，搜索提示语 -->
-    {% if search %}
-        {% if articles %}
+        <div class="col-lg-8">
+            <!-- 新增，搜索栏 -->
+            <!--div class="col-0 mr-auto">
+
+            </div-->
+            <!-- 新增，搜索提示语 -->
+            {% if search %}
+            {% if articles %}
             <h4><span style="color: red">"{{ search }}"</span>的搜索结果如下：</h4>
             <hr>
-        {% else %}
+            {% else %}
             <h4>暂无<span style="color: red">"{{ search }}"</span>有关的文章。</h4>
             <hr>
-        {% endif %}
-    {% endif %}
-    <!-- 列表循环 -->
-    <div class="row mt-2">
-
-        {% for article in articles %}
+            {% endif %}
+            {% endif %}
+            <!-- 列表循环 -->
+            <div>
+                {% for article in articles %}
+                <div class="card mb-2 hvr-glow" style="display: flex">
+                    <div class="row no-gutters align-items-center">
         <!-- 标题图 -->
-        {% if article.avatar %}
-            <div class="col-3">
-                <img src="{{ article.avatar.url }}"
-                     alt="avatar"
-                     style="max-width:100%; border-radius: 20px"
-                >
-            </div>
-        {% endif %}
-        <!-- 文章内容 -->
-        <div class="col">
-            <!-- 栏目 -->
-            {% if article.column %}
-                <a  role="button"
+                        {% if article.avatar %}
+                        <div class="col-4 d-none d-md-block" style="overflow: hidden">
+                            <img src="{{ article.avatar.url }}"
+                                 alt="avatar"
+                                 style="max-width:100%; border-radius: 7px; transition-duration: 1s;" class="card-img hvr-grow"
+                            >
+                        </div>
+                        {% endif %}
+                        <!-- 文章内容 -->
+                        <div class="col">
+                            <!-- 栏目 -->
+                            <div class="card-body">
+                                {% if article.column %}
+                                <a  role="button"
                     href="{% url 'article:article_list' %}?column={{ article.column.id }}"
                     class="btn btn-sm mb-2
                         {% if article.column.title == 'Django' %}
@@ -90,59 +85,60 @@
                 >
                     {{ article.column }}
                 </a>
-            {% endif %}
-            <!-- 标签 -->
-            <span>
-                {% for tag in article.tags.all %}
-                <a href="{% url 'article:article_list' %}?tag={{ tag }}"
-                   class="badge badge-secondary"
-                >
-                    {{ tag }}
-                </a>
+                                {% endif %}
+                                <!-- 标签 -->
+                                <span>
+                                    {% for tag in article.tags.all %}
+                                    <a href="{% url 'article:article_list' %}?tag={{ tag }}"
+                                       class="badge badge-secondary"
+                                    >
+                                        {{ tag }}
+                                    </a>
+                                    {% endfor %}
+                                </span>
+                                <!-- 标题 -->
+                                <h5>
+                                    <b>
+                                        <a href="{% url 'article:article_detail' article.id %}">
+                                            {{ article.title }}
+                                        </a>
+                                    </b>
+                                </h5>
+                                <!-- 摘要 -->
+                                <div>
+                                    <p style="color: gray;margin-bottom: 0rem">
+                                        {{ article.body|slice:'100' }}...
+                                    </p>
+                                </div>
+                                <!-- 注脚 -->
+                                <p style="margin-bottom: 0rem">
+                                    <!-- 附加信息 -->
+                                    <span>
+                                        <i class="fas fa-eye" style="color: lightskyblue;"></i>
+                                        {{ article.total_views }}&nbsp;&nbsp;&nbsp;
+                                    </span>
+                                    <span>
+                                        <i class="fas fa-comments" style="color: yellowgreen;"></i>
+                                        {{ article.comments.count }}&nbsp;&nbsp;&nbsp;
+                                    </span>
+                                    <span>
+                                        <i class="fas fa-clock" style="color: pink;"></i>
+                                        <!-- 旧代码
+                                            {{ article.created|date:'Y-m-d' }}
+                                            -->
+                                        {{ article.created|timesince_zh }}
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                        <!--hr style="width: 100%;"/-->
                 {% endfor %}
-            </span>
-            <!-- 标题 -->
-            <h4>
-                <b>
-                    <a href="{% url 'article:article_detail' article.id %}"
-                       style="color: black;"
-                    >
-                        {{ article.title }}
-                    </a>
-                </b>
-            </h4>
-            <!-- 摘要 -->
-            <div>
-                <p style="color: gray;">
-                    {{ article.body|slice:'100' }}...
-                </p>
             </div>
-            <!-- 注脚 -->
-            <p>
-                <!-- 附加信息 -->
-                <span>
-                    <i class="fas fa-eye" style="color: lightskyblue;"></i>
-                    {{ article.total_views }}&nbsp;&nbsp;&nbsp;
-                </span>
-                <span>
-                    <i class="fas fa-comments" style="color: yellowgreen;"></i>
-                    {{ article.comments.count }}&nbsp;&nbsp;&nbsp;
-                </span>
-                <span>
-                    <i class="fas fa-clock" style="color: pink;"></i>
-                    <!-- 旧代码
-                    {{ article.created|date:'Y-m-d' }}
-                    -->
-                    {{ article.created|timesince_zh }}
-                </span>
-            </p>
-        </div>
-        <hr style="width: 100%;"/>
-        {% endfor %}
 
-    </div>
-    <!-- 页码导航 -->
-    <div class="pagination row">
+            <!-- 页码导航 -->
+            <div class="pagination row">
         <div class="m-auto">
             <span class="step-links">
                 <!-- 如果不是第一页，则显示上翻按钮 -->
@@ -179,6 +175,96 @@
             </span>
         </div>
     </div>
+
+        </div>
+        <div class="col-lg-4">
+            <!--个人空间-->
+            <div class="card border-0 rounded-0 px-3 mb-2 mb-md-3 d-none d-lg-block" id="home-card">
+                <div class="card-header bg-white px-0">
+                    <strong><i class="fa fa-paper-plane mr-2 f-17" style="color: lightskyblue;"></i>个人空间</strong>
+                </div>
+                <div class="card-body px-0 pt-3 pb-1">
+                    <div class="row text-center">
+                        <div class="col">
+                            <a href="https://github.com/liuyao01/django_myblog" target="_blank" title="进入博主的Github查看博客源码">
+                                <img style="max-width:40px" alt="博主的github" src="/static/img/github.png">
+                                <p class="mt-2">Github</p>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a href="/article/about" target="_blank" title="查看网站相关">
+                                <img style="max-width:40px" alt="关于网站" src="/static/img/blog.jpg">
+                                <p class="mt-2">About</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--文章分类-->
+            <div class="card border-0 rounded-0 px-3 mb-2 mb-md-3" id="category-card">
+                <div class="card-header bg-white px-0">
+                    <strong><i class="fa fa-book mr-2 f-17" style="color: lightskyblue;"></i>文章分类</strong>
+                </div>
+
+                <ul class="list-group list-group-flush f-16">
+
+                    <li class="list-group-item d-flex justify-content-between align-items-center pr-2 py-2">
+                        <a class="category-item" href="{% url 'article:article_list' %}?column=2"
+                           title="查看【Python】分类下所有文章">Python</a>
+                        <span class="badge text-center" title="当前分类下有{{total_python}}篇文章">{{total_python}}</span>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between align-items-center pr-2 py-2">
+                        <a class="category-item" href="{% url 'article:article_list' %}?column=3"
+                           title="查看【Linux】分类下所有文章">Linux</a>
+                        <span class="badge text-center" title="当前分类下有{{total_linux}}篇文章">{{total_linux}}</span>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between align-items-center pr-2 py-2">
+                        <a class="category-item" href="{% url 'article:article_list' %}?column=1"
+                           title="查看【Django】分类下所有文章">Django</a>
+                        <span class="badge text-center" title="当前分类下有{{total_django}}篇文章">{{total_django}}</span>
+                    </li>
+                </ul>
+            </div>
+            <!--友链-->
+            <div class="d-none d-lg-block">
+                <div class="card border-0 rounded-0 px-3 mb-2 mb-md-3" id="friends-card">
+                    <div class="card-header bg-white px-0">
+                        <strong><i class="fa fa-link mr-2 f-17" style="color: lightskyblue;"></i>常用链接</strong>
+                    </div>
+                    <div class="card-body px-0 py-3">
+                        <div class="tool-list">
+                            <div class="w-50 float-left text-center mb-2">
+                                <div class="mx-2">
+                                    <a href="http://markdown.xiaoshujiang.com/" title="小书匠markdown" target="_blank">
+                                        小书匠</a>
+                                </div>
+                            </div>
+
+                            <!--div class="w-50 float-left text-center mb-2">
+                                <div class="mx-2">
+                                    <a href="https://zmrenwu.com" title="Django 博客教程分享者" target="_blank">
+                                        追梦人物</a>
+                                </div>
+                            </div-->
+
+                            <div class="w-50 float-left text-center mb-2">
+                                <div class="mx-2">
+                                    <a href="https://sm.ms/" title="免费的在线图片存储网站" target="_blank">
+                                        SM.MS</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
 
 </div>
 {% endblock content %}
